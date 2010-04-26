@@ -60,6 +60,14 @@ int eth_setenv_enetaddr(char *name, const uchar *enetaddr)
 static char *act = NULL;
 static int  env_changed_id = 0;
 
+static int eth_mac_skip(int index)
+{
+	char enetvar[15];
+	char *skip_state;
+	sprintf(enetvar, index ? "eth%dmacskip" : "ethmacskip", index);
+	return ((skip_state = getenv(enetvar)) != NULL);
+}
+
 /*
  * CPU and board-specific Ethernet initializations.  Aliased function
  * signals caller to move on
@@ -240,6 +248,11 @@ int eth_initialize(bd_t *bis)
 				}
 
 				memcpy(dev->enetaddr, env_enetaddr, 6);
+			}
+			if (dev->write_hwaddr &&
+				!eth_mac_skip(eth_number) &&
+				is_valid_ether_addr(dev->enetaddr)) {
+				dev->write_hwaddr(dev);
 			}
 
 			eth_number++;
