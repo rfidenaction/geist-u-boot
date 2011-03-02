@@ -1807,7 +1807,7 @@ extern unsigned int __machine_arch_type;
 #define MACH_TYPE_JADE                 1821
 #define MACH_TYPE_KS8695_SOFTPLC       1822
 #define MACH_TYPE_GPRISC3              1823
-#define MACH_TYPE_STAMP9260            1824
+#define MACH_TYPE_STAMP9G20            1824
 #define MACH_TYPE_SMDK6430             1825
 #define MACH_TYPE_SMDKC100             1826
 #define MACH_TYPE_TAVOREVB             1827
@@ -23531,16 +23531,16 @@ extern unsigned int __machine_arch_type;
 # define machine_is_gprisc3()	(0)
 #endif
 
-#ifdef CONFIG_MACH_STAMP9260
+#ifdef CONFIG_MACH_STAMP9G20
 # ifdef machine_arch_type
 #  undef machine_arch_type
 #  define machine_arch_type	__machine_arch_type
 # else
-#  define machine_arch_type	MACH_TYPE_STAMP9260
+#  define machine_arch_type	MACH_TYPE_STAMP9G20
 # endif
-# define machine_is_stamp9260()	(machine_arch_type == MACH_TYPE_STAMP9260)
+# define machine_is_stamp9g20()	(machine_arch_type == MACH_TYPE_STAMP9G20)
 #else
-# define machine_is_stamp9260()	(0)
+# define machine_is_stamp9g20()	(0)
 #endif
 
 #ifdef CONFIG_MACH_SMDK6430
