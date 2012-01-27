@@ -175,6 +175,11 @@
 #define CONFIG_SYS_HUSH_PARSER
 #define CONFIG_SYS_PROMPT_HUSH_PS2	"> "
 
+#define CONFIG_AUTOBOOT_KEYED           /* Enable password protection   */
+#define CONFIG_AUTOBOOT_PROMPT          \
+        "\nBooting... stop with SPACE\n"
+#define CONFIG_AUTOBOOT_DELAY_STR       " "    /* 1st "password"       */
+
 #define ROUND(A, B)		(((A) + (B)) & ~((B) - 1))
 /*
  * Size of malloc() pool
