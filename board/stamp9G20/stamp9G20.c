@@ -149,6 +149,11 @@ int board_init(void)
 	/* adress of boot parameters */
 	gd->bd->bi_boot_params = PHYS_SDRAM + 0x100;
 
+	/* Light LED */
+	at91_sys_write(AT91_PMC_PCER, 1 << AT91SAM9260_ID_PIOB);
+	at91_set_gpio_output(AT91_PIN_PB28, 1);
+	at91_set_gpio_value(AT91_PIN_PB28, 0);
+
 	at91_serial_hw_init();
 #ifdef CONFIG_CMD_NAND
 	stamp9G20_nand_hw_init();
