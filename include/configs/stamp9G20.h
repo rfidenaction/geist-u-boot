@@ -61,7 +61,7 @@
 #define	CONFIG_RED_LED		AT91_PIN_PA9	/* this is the power led */
 #define	CONFIG_GREEN_LED	AT91_PIN_PA6	/* this is the user led */
 
-#define CONFIG_BOOTDELAY	3
+#define CONFIG_BOOTDELAY	2
 
 /*
  * BOOTP options
